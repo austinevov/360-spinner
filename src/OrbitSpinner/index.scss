@@ -1,0 +1,13 @@
+.spinner-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f3f3f3;
+
+  .spinner-canvas {}
+}
