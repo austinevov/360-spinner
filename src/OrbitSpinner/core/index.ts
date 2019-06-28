@@ -1,7 +1,7 @@
 let images = [];
 for (let i = 0; i < 120; i++) {
   const image = new Image();
-  image.src = `/frames/${i}.jpg`;
+  image.src = `frames/${i}.jpg`;
   images.push(image);
 }
 
