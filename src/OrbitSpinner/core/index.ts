@@ -14,7 +14,7 @@ export default class OrbitSpinnerCore {
   private container: HTMLDivElement;
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
-private deltaTheta: number;
+  private deltaTheta: number;
   constructor(container: HTMLDivElement) {
     this.isDragging = false;
     this.mouseX = 0;
@@ -25,7 +25,7 @@ private deltaTheta: number;
     this.canvas.width = 800;
     this.canvas.height = 800;
     this.canvas.style.width = '400px';
-     this.canvas.style.height = '400px';
+    this.canvas.style.height = '400px';
 
     this.canvas.className = 'spinner-canvas';
     container.appendChild(this.canvas);
@@ -37,7 +37,6 @@ private deltaTheta: number;
     container.onmousemove = this.handleMove;
     container.ontouchmove = this.handleMove;
 
-
     this.animate();
   }
 
@@ -45,7 +44,7 @@ private deltaTheta: number;
     this.context.drawImage(images[this.frame], 0, 0, 800, 800);
 
     requestAnimationFrame(this.animate);
-  }
+  };
 
   private startDragging = evt => {
     const clientX = evt.clientX || evt.touches[0].clientX;
@@ -70,17 +69,17 @@ private deltaTheta: number;
     const clientX = evt.clientX || evt.touches[0].clientX;
 
     if (this.isDragging) {
-      const delta = (clientX - this.mouseX);
-      const deltaTheta = delta * 0.25;
+      const delta = clientX - this.mouseX;
+      const deltaTheta = delta * 0.5;
 
       let theta = this.theta + deltaTheta;
-      theta = (theta % 360);
+      theta = theta % 360;
       if (theta < 0) {
         theta = 360 + theta;
       }
 
       this.currentTheta = theta;
-      this.frame = Math.floor(theta / 3);   
+      this.frame = Math.floor(theta / 3);
     }
   };
 }
